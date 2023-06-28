@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+  <title>App envio de Emails</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS v5.2.1 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+
+</head>
+<script>
+    // Verifica se a URL possui um parâmetro "redirected" na query string
+    const urlParams = new URLSearchParams(window.location.search);
+    const redirected = urlParams.get('redirected');
+
+    // Se o parâmetro "redirected" estiver presente, exibe o alerta
+    if (redirected) {
+        alert('Falta de dados para preencher ou tentativa de acesso direto à pagina processa_envio, tente novamente');
+    }
+</script>
+
+<body class="container">
+    <header class="row justify-content-center text-align-center topo">
+        <img src="../Imagens/FastMail.png" alt="Logo" class="align-items-center m-3" style="width: 45%;" >
+        <h3 class="text-center display-6">Seu App para envio de Emails</h3>
+    </header><br>
+    <main>
+    <div class="row justify-content-center align-items-center">
+      <form action="processa_envio.php" method="POST">
+        <div class="mb-3 col-12">
+          <label for="email" class="form-label">Email</label>
+          <input name="email" type="email" class="form-control" id="email" aria-describedby="emailHelp">
+          <div id="emailHelp" class="form-text">Digite um email válido para receber uma mensagem.</div>
+        </div>
+        <div class="mb-3 col-12">
+          <label for="exampleInputPassword1" class="form-label">Assunto</label>
+          <input type="text" class="form-control" id="assunto" name="assunto" aria-describedby="assuntoHelp">
+          <div id="assuntoHelp" class="form-text">Digite um email válido para receber uma mensagem.</div>
+        </div>
+        <div class="mb-3 col-12">
+          <label for="mensagem" class="form-label">Mensagem</label>
+          <textarea class="form-control" name="mensagem" id="mensagem" rows="3"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary col-12">Enviar</button>
+      </form>
+    </div>
+    </main>
+</body>
+
+</html>
